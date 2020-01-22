@@ -22,7 +22,7 @@ exports.createUser = (req, res, next) => {
     })
 }
 
-exports.loginUser = (req, res, next) => {
+exports.userLogin = (req, res, next) => {
     let fetchedUser;
     User.findOne({
         email: req.body.email
