@@ -8,7 +8,10 @@ const userRoutes = require('./routes/user')
 
 const app = express();
 
-mongoose.connect(`mongodb+srv://${process.env.USERNAME}:${process.env.PW}@cluster0-9ptgq.mongodb.net/mean-app`).then(() => {
+mongoose.connect(`mongodb+srv://${process.env.USERNAME}:${process.env.PW}@cluster0-9ptgq.mongodb.net/mean-app`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
     console.log('Conected to database')
 }).catch(() => {
     console.log('Connection failed')
