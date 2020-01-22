@@ -16,10 +16,8 @@ mongoose.connect(mongoUrl, {
     useUnifiedTopology: true
 }).then(() => {
     console.log('Connected to database')
-    console.log(mongoUrl)
 }).catch(() => {
     console.log('Connection failed')
-    console.log(mongoUrl)
 })
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({

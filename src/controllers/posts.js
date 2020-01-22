@@ -39,7 +39,6 @@ exports.updatePost = (req, res, next) => {
         imagePath: imagePath,
         creator: req.userData.userId
     });
-    console.log(post)
     Post.updateOne({
             _id: req.params.id,
             creator: req.userData.userId
