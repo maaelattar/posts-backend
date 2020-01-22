@@ -33,12 +33,13 @@ exports.updatePost = (req, res, next) => {
         imagePath = url + "/images/" + req.file.filename;
     }
     const post = new Post({
-        _id: req.body.id,
+        _id: req.params.id,
         title: req.body.title,
         content: req.body.content,
         imagePath: imagePath,
         creator: req.userData.userId
     });
+    console.log(post)
     Post.updateOne({
             _id: req.params.id,
             creator: req.userData.userId
@@ -64,13 +65,14 @@ exports.updatePost = (req, res, next) => {
 exports.getPosts = (req, res, next) => {
     const pageSize = +req.query.pageSize
     const currentPage = +req.query.page
-    let fetchedPosts;
 
     const postQuery = Post.find()
+    let fetchedPosts;
+
     if (pageSize && currentPage) {
         postQuery.skip(pageSize * (currentPage - 1)).limit(pageSize)
     }
-    postQuery().then(documents => {
+    postQuery.then(documents => {
         fetchedPosts = documents
         return Post.count()
     }).then(count => {

@@ -10,8 +10,8 @@ const router = express.Router()
 router.post('', checkAuth, extractFile, postsController.createPost)
 router.get('', postsController.getPosts)
 
-router.put('/:id', checkAuth, extractFile, postsController.updatePost)
-router.delete('/:id', checkAuth, extractFile, postsController.deletePost)
 router.get('/:id', postsController.getPost)
+router.delete('/:id', checkAuth, postsController.deletePost)
+router.put('/:id', checkAuth, extractFile, postsController.updatePost)
 
 module.exports = router
