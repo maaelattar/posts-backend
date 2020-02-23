@@ -9,13 +9,17 @@ const errorhandler = require('errorhandler');
 
 const chalk = require('chalk');
 
+let isProduction = process.env.NODE_ENV === 'production';
+
+if (!isProduction) {
+	require('dotenv').config();
+}
+
 require('./src/models/User');
 require('./src/models/Post');
 
 const app = express();
 const port = process.env.PORT;
-
-let isProduction = process.env.NODE_ENV === 'production';
 
 if (!isProduction) {
 	app.use(errorhandler());
