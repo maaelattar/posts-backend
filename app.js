@@ -18,6 +18,7 @@ require('./models/User');
 require('./models/Post');
 
 const app = express();
+app.use(cors());
 
 const mongoUrl = `mongodb+srv://${process.env.DB_USER_NAME}:${process.env.PW}@cluster0-9ptgq.mongodb.net/mean-posts-app?retryWrites=true&w=majority`;
 
@@ -48,7 +49,6 @@ app.use(
 	})
 );
 app.use(morgan('dev'));
-app.use(cors());
 
 const postsRoutes = require('./routes/posts');
 const userRoutes = require('./routes/user');
