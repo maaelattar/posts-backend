@@ -1,17 +1,19 @@
-const express = require('express')
+const express = require('express');
 
-const postsController = require('../controllers/posts')
+const postsController = require('../controllers/posts');
 
-const checkAuth = require('../middleware/check-auth')
-const extractFile = require('../middleware/file')
+const checkAuth = require('../middleware/check-auth');
+const parser = require('../middleware/extract-image');
+const router = express.Router();
 
-const router = express.Router()
+router.param('id', postsController.populatePost);
 
-router.post('', checkAuth, extractFile, postsController.createPost)
-router.get('', postsController.getPosts)
+router.post('', checkAuth, parser, postsController.createPost);
+router.get('', postsController.getPosts);
 
-router.get('/:id', postsController.getPost)
-router.delete('/:id', checkAuth, postsController.deletePost)
-router.put('/:id', checkAuth, extractFile, postsController.updatePost)
+router.get('/:id', postsController.getPost);
+router.delete('/:id', checkAuth, postsController.deletePost);
 
-module.exports = router
+router.put('/:id', checkAuth, parser, postsController.updatePost);
+
+module.exports = router;
