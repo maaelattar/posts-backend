@@ -36,7 +36,7 @@ mongoose
 		console.log('Connected to database');
 	})
 	.catch(() => {
-		console.log('Connection failed');
+		console.log('Database Connection failed');
 	});
 
 app.use(bodyParser.json());
@@ -45,7 +45,7 @@ app.use(
 		extended: false
 	})
 );
-app.use('/images', express.static(path.join('images')));
+app.use(express.static(path.join(__dirname, 'public', 'posts-app')));
 app.use(morgan('dev'));
 app.use(cors());
 
