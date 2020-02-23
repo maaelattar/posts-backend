@@ -1,26 +1,31 @@
 {
-  "name": "backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -r dotenv/config src/index.js dotenv_config_path=config/dev.env"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bcrypt": "^3.0.7",
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.8.9",
-    "mongoose-unique-validator": "^2.0.3",
-    "morgan": "^1.9.1",
-    "multer": "^1.4.2"
-  },
-  "devDependencies": {
-    "dotenv": "^8.2.0",
-    "nodemon": "^2.0.2"
-  }
+	"name": "backend",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "nodemon -r dotenv/config src/app.js dotenv_config_path=config/dev.env"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"bcrypt": "^3.0.7",
+		"body-parser": "^1.19.0",
+		"chalk": "^3.0.0",
+		"cloudinary": "^1.19.0",
+		"cors": "^2.8.5",
+		"datauri": "^2.0.0",
+		"errorhandler": "^1.5.1",
+		"express": "^4.17.1",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^5.8.9",
+		"mongoose-unique-validator": "^2.0.3",
+		"morgan": "^1.9.1",
+		"multer": "^1.4.2",
+		"multer-storage-cloudinary": "^2.2.1"
+	},
+	"devDependencies": {
+		"dotenv": "^8.2.0",
+		"nodemon": "^2.0.2"
+	}
 }
