@@ -47,8 +47,6 @@ app.use(
 		extended: false
 	})
 );
-app.use(express.static(path.join(__dirname, 'public', 'posts-app')));
-app.use('*', express.static(path.join(__dirname, 'public', 'posts-app')));
 app.use(morgan('dev'));
 app.use(cors());
 
