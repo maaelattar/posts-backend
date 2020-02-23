@@ -1,23 +1,31 @@
-const mongoose = require("mongoose")
+const mongoose = require('mongoose');
 
-const postSchema = mongoose.Schema({
-    title: {
-        required: true,
-        type: String
-    },
-    content: {
-        required: true,
-        type: String
-    },
-    imagePath: {
-        required: true,
-        type: String
-    },
-    creator: {
-        required: true,
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
-    }
-})
+const PostSchema = mongoose.Schema({
+	title: {
+		required: [true, "can't be blank"],
+		type: String
+	},
+	content: {
+		required: [true, "can't be blank"],
+		type: String
+	},
+	imagePath: {
+		required: [true, "can't be blank"],
+		type: String
+	},
+	creator: {
+		required: true,
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User'
+	}
+});
 
-module.exports = mongoose.model("Post", postSchema)
+PostSchema.method.toJSON = function() {
+	return {
+		title: this.title,
+		content: this.content,
+		imagePath: this.imagePath,
+		creator: this.creator
+	};
+};
+mongoose.model('Post', PostSchema);
