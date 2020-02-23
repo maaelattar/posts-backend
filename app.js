@@ -9,8 +9,8 @@ const errorhandler = require('errorhandler');
 
 const chalk = require('chalk');
 
-require('./models/User');
-require('./models/Post');
+require('./src/models/User');
+require('./src/models/Post');
 
 const app = express();
 const port = process.env.PORT;
@@ -49,8 +49,8 @@ app.use('/images', express.static(path.join('images')));
 app.use(morgan('dev'));
 app.use(cors());
 
-const postsRoutes = require('./routes/posts');
-const userRoutes = require('./routes/user');
+const postsRoutes = require('./src/routes/posts');
+const userRoutes = require('./src/routes/user');
 
 app.use('/api/posts', postsRoutes);
 app.use('/api/users', userRoutes);
