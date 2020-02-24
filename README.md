@@ -8,7 +8,7 @@ it also stores uploaded images to cloudinary cloud service
 
 you can view it [here](https://github.com/mohamed-elattar/posts-app)
 
-and view front end live [here](https://maa-posts-app.herokuapp.com/)
+and view front end live [here](https://maa-posts-app.netlify.com/)
 
 ## Inspiration
 
